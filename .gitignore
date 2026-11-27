@@ -1,0 +1,17 @@
+# Secrets et configuration locale
+.env
+*.env
+
+# Dépendances
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# Build artefacts (rebuild via `npm run build`)
+extension/dist/
+
+# OS / éditeur
+.DS_Store
+*.log

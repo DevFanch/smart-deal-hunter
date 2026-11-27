@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smart Deal Hunter</title>
+  <link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Smart Deal Hunter</h1>
+    <button id="btn-prefs" class="ghost" title="Préférences">⚙</button>
+  </header>
+
+  <main>
+    <!-- ÉCRAN DE RECHERCHE -->
+    <section id="screen-search">
+      <label for="query" class="lbl">Quel produit recherchez-vous ?</label>
+      <input id="query" type="text" maxlength="160" autocomplete="off" spellcheck="false"
+             placeholder="Ex. Nike Air Max 90, Bosch 0125812015…" />
+      <p id="query-error" class="error hidden"></p>
+
+      <div class="row">
+        <label for="category" class="lbl">Catégorie <span class="opt">(facultatif)</span></label>
+        <select id="category"><option value="">Détection automatique</option></select>
+      </div>
+
+      <div id="filters"></div>
+
+      <div class="row">
+        <label for="country" class="lbl">Pays de destination</label>
+        <select id="country"></select>
+      </div>
+
+      <label class="check">
+        <input type="checkbox" id="wholesale" />
+        Inclure les fournisseurs asiatiques et les offres en gros
+      </label>
+      <label class="check">
+        <input type="checkbox" id="deep" />
+        Approfondir la recherche avec les services optionnels
+      </label>
+      <p id="deep-notice" class="hint hidden">Aucune API payante n'est configurée : la recherche reste gratuite.</p>
+
+      <div class="row two">
+        <label for="quantity" class="lbl">Quantité (grossistes)</label>
+        <select id="quantity" disabled></select>
+      </div>
+
+      <button id="btn-search" class="primary">Rechercher</button>
+    </section>
+
+    <!-- ÉCRAN DE RÉSULTATS -->
+    <section id="screen-results" class="hidden">
+      <button id="btn-back" class="ghost">← Nouvelle recherche</button>
+      <div id="progress" class="hidden">
+        <div class="bar"><div class="fill"></div></div>
+        <p id="progress-label">Recherche en cours…</p>
+      </div>
+      <div id="warnings"></div>
+
+      <h2>Top 5 — offres vérifiées <span id="count-verified" class="count"></span></h2>
+      <p class="hint">Pages réellement consultées à la source.</p>
+      <div id="offers"></div>
+
+      <h2>Autres pistes à vérifier <span id="count-leads" class="count"></span></h2>
+      <p class="hint">Résultats pertinents non consultés : vérifiez vous-même avant achat.</p>
+      <div id="leads"></div>
+
+      <div id="diagnostics" class="diag"></div>
+    </section>
+
+    <!-- PRÉFÉRENCES -->
+    <section id="screen-prefs" class="hidden">
+      <button id="btn-prefs-back" class="ghost">← Retour</button>
+      <h2>Préférences</h2>
+      <div class="row">
+        <label for="backend-url" class="lbl">URL du backend</label>
+        <input id="backend-url" type="url" placeholder="http://localhost:8000" />
+      </div>
+      <div class="row">
+        <label for="currency" class="lbl">Devise de comparaison</label>
+        <select id="currency"></select>
+      </div>
+      <p class="hint">La recherche approfondie (payante, optionnelle) est désactivée tant qu'aucun
+        service et budget ne sont configurés côté backend. Aucun coût n'est engagé automatiquement.</p>
+    </section>
+  </main>
+
+  <script src="dist/sidepanel.js"></script>
+</body>
+</html>

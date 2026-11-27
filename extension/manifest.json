@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Smart Deal Hunter",
+  "version": "0.1.0",
+  "description": "Compare les prix en ligne (offres vérifiées + pistes) et recherche des fournisseurs/grossistes, avec recherche gratuite par défaut.",
+  "minimum_chrome_version": "116",
+  "permissions": ["storage"],
+  "action": {
+    "default_title": "Smart Deal Hunter"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "dist/background.js"
+  },
+  "host_permissions": [
+    "http://localhost:8000/*",
+    "http://127.0.0.1:8000/*"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
