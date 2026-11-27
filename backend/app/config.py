@@ -34,6 +34,21 @@ class Settings:
     verify_top_n: int = _env_int("SDH_VERIFY_TOP_N", 8)
     max_results_per_source: int = _env_int("SDH_MAX_RESULTS_PER_SOURCE", 10)
 
+    # Serper.dev (Google Search) : gratuit jusqu'à épuisement du quota d'inscription
+    # (2 500 requêtes offertes, sans carte bancaire). Sans clé : connecteur inactif.
+    serper_api_key: str = _env_str("SDH_SERPER_API_KEY", "")
+    serper_quota_total: int = _env_int("SDH_SERPER_QUOTA_TOTAL", 2500)
+
+    # MaxMind GeoLite2 (GeoIP locale, gratuite avec licence) : si un chemin de
+    # base valide est fourni, aucune dépendance réseau et aucune limite de débit.
+    maxmind_account_id: str = _env_str("SDH_MAXMIND_ACCOUNT_ID", "")
+    maxmind_license_key: str = _env_str("SDH_MAXMIND_LICENSE_KEY", "")
+    geoip_db_path: str = _env_str("SDH_GEOIP_DB_PATH", "data/GeoLite2-Country.mmdb")
+
+    # Icecat (Open Icecat, gratuit après inscription) : identifiants optionnels.
+    icecat_username: str = _env_str("SDH_ICECAT_USERNAME", "")
+    icecat_password: str = _env_str("SDH_ICECAT_PASSWORD", "")
+
     # Recherche approfondie (niveau 2, payant) : désactivée par défaut
     deep_search_enabled: bool = _env_bool("SDH_DEEP_SEARCH_ENABLED", False)
     deep_search_provider: str = _env_str("SDH_DEEP_SEARCH_PROVIDER", "")  # ex. "serpapi"

@@ -50,7 +50,11 @@ class BaseConnector(ABC):
         ne fait jamais échouer l'ensemble de la recherche."""
         start = time.monotonic()
         if not self.enabled:
-            return ConnectorOutcome(disabled_reason=f"connecteur {self.name} désactivé")
+            return ConnectorOutcome(
+                results=[],
+                report=ConnectorReport(name=self.name, status="disabled", results=0),
+                disabled_reason=f"connecteur {self.name} désactivé (clé absente ou désactivé)",
+            )
         try:
             outcome = await self.search(request, client)
             outcome.report = outcome.report or self._report(outcome.results, start)

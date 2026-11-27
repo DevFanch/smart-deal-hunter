@@ -2,6 +2,9 @@
 .env
 *.env
 
+# Bases GeoLite2 MaxMind (interdiction de redistribution, licence GeoLite)
+backend/data/*.mmdb
+
 # Dépendances
 node_modules/
 __pycache__/

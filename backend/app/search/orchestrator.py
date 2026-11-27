@@ -13,6 +13,7 @@ from ..fx import convert, get_rates
 from ..security.input_sanitizer import sanitize_query
 from .connectors.base import BaseConnector, ConnectorOutcome
 from .connectors.page_verify import verify_results
+from .connectors.serper_connector import SerperConnector
 from .connectors.websearch import WebSearchConnector
 from .connectors.wholesale import WholesaleConnector
 from .models import (
@@ -52,6 +53,7 @@ class BudgetTracker:
 class Orchestrator:
     def __init__(self, connectors: list[BaseConnector] | None = None) -> None:
         self.connectors: list[BaseConnector] = connectors or [
+            SerperConnector(settings.serper_api_key, settings.serper_quota_total),
             WebSearchConnector(max_results=settings.max_results_per_source),
             WholesaleConnector(),
         ]
