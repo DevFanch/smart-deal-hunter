@@ -1,8 +1,8 @@
 # Smart Deal Hunter — backend (dépendances minimales, volontairement restreintes)
-fastapi==0.115.6
+fastapi==0.165.0
 uvicorn==0.34.0
 httpx==0.28.1
-pydantic==2.10.4
+pydantic==2.14.4
 ddgs==9.16.1
 maxminddb==2.6.3
 pytest==8.3.4
