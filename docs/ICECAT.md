@@ -11,6 +11,18 @@ ce ne sont pas les bons points d'entrée. Suivez ce chemin :
 4. Renseigner entreprise/email, valider, puis confirmer l'email ;
 5. L'approbation peut prendre de quelques heures à 1-2 jours ouvrés.
 
+## 1bis. « Je ne trouve pas le menu Content User Free »
+
+Normal : ce libellé n'existe **pas** dans le menu une fois connecté. Sur votre
+capture, l'accès gratuit est déjà visible : le lien **« Download the free
+data-sheets »** dans le menu, c'est précisément l'accès Open Icecat (gratuit).
+- Le contenu gratuit se consulte directement sur https://icecat.biz (recherche
+  en haut : nom du produit, EAN ou référence) — les fiches « Open » s'affichent
+  sans abonnement ;
+- « Content User Free » désigne le **rôle** choisi à l'inscription (étape 3
+  ci-dessous), pas un menu de navigation ;
+- Inutile d'aller dans Icecat Studio / PIM / Batavi : produits payants séparés.
+
 ## 2. Récupérer les identifiants
 
 Une fois le compte approuvé : connexion sur **icecat.biz** → coin supérieur droit → **My Profile / Account**
