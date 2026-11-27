@@ -41,6 +41,9 @@ npm install
 npm run build
 ```
 
+Si les icônes `extension/icons/icon*.png` sont absentes du dépôt (fichiers binaires non
+poussés), les régénérer une fois : `python3 extension/icons/generate_icons.py`.
+
 Puis dans Chrome :
 1. Ouvrir `chrome://extensions` → activer **Mode développeur** ;
 2. **Charger l'extension non empaquetée** → sélectionner le dossier `extension/` ;

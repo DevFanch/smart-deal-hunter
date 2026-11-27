@@ -1,0 +1,24 @@
+"""Régénère les icônes de l'extension (PNG encodés en base64, stdlib uniquement).
+
+Usage : python3 extension/icons/generate_icons.py
+Exécuter après un clone si les fichiers .png sont absents du dépôt.
+"""
+import base64
+from pathlib import Path
+
+ICON16 = "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAMklEQVR4nGPgzvlPEmIYEhrQAAENWAFODZgqMEWwaMBq58BqIMEPJIcSOfFAl6SBHwEA5My/YFBDpb8AAAAASUVORK5CYII="
+ICON48 = "iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAAApUlEQVR4nO3YMQ6AMAwDwO58lf+v8ACkJnZcIGCLkTg3IEEZ23686hqPCwwyyCCD2Mkw94GgrAXRWQIqRgySRAYSRgCC1tRNJZB8KgbRvfQsCco8edz4DFTUcCUwCNIQPQZpQYQGrTJIC+JMUI9BchBqQktavcsmjRkTN9vte2hefd0B3UyCkmuSCXf1PHVITMktnU+uHAst/8Tfj6WXQQYZ9DvQCbO7U30AtkWVAAAAAElFTkSuQmCC"
+ICON128 = "iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAACIUlEQVR4nO3dsW7DUAxD0ez91f7/2i4FigBpUjhPIiVegXsondWxbx+fX0SYm7xBeAAAIDsAAJAdAADIDgAAZAcAALIDAADZAQCA7AAAQHYAACA7AACQHQAA+Ecuj7z5bICDI99lEkDpyLezBmgb+aZ2AJKRb20BIJ9cAKuJAzCcIADb2Q8wYtYCDJqFAONmFcDQWQIwesYDLBgAxDMYYM2MBOi/SP8v+gLITyAvsAdgTZM+AMOFDSu5A4S0Og9guKRzPTuA0usbNjwMYLXbiJ5GAG3Xt6p6EsBkpVmFAQBA+mCIvPMxAPkmQ5sDkA0gv768/BmAyyM/vbw/AMEA8rs7rAAAAB4BAIDe9vKLm2wBAAA2AQCAUdUBAAAAAC5XdzNQrQAAAB4BAID29j4Gwv4ArAC4vIP89PLyPBUhbg7AFgD5JkM7WwCoDBwKA7AIwGSlWVWNADoNfHryHzFxQzuAagO3evxPWNzKF+DstoaVCgEOLvz+zj5NpgJc219eQAxQdILnt+j/RWuA6ot0Tt2JeGfc6ym9DwCvZzbAdIPq4/Dm3GfTcBneHf3n9JyFt6c/nrab8P2AB9N5EL6gcTf9p+AbMr8juQNfUfoZ1RH4jph4fT2AkEG+tRFAM4N8U1OABgb5dgMAKiTku4wEeF9C3nwJwOIAAEB2AAAgOwAAkB0AAMgOAABkBwAAsgMAANkBAIDsAABAdgAAIDsAiPMNyo1c0pIW4i8AAAAASUVORK5CYII="
+
+ICONS = {"icon16.png": ICON16, "icon48.png": ICON48, "icon128.png": ICON128}
+
+
+def main() -> None:
+    here = Path(__file__).resolve().parent
+    for name, b64 in ICONS.items():
+        (here / name).write_bytes(base64.b64decode(b64))
+        print(f"écrit {here / name}")
+
+
+if __name__ == "__main__":
+    main()
